@@ -1,0 +1,6 @@
+
+Q: What happens if users choose “Cancel”?
+A: Message shows "You've chosen No"
+
+Q: How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do” and “I don’t”
+A: Use JOptionPane.YES_NO_OPTION in JOptionPane.showConfirmDialog
