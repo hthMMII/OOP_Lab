@@ -17,7 +17,13 @@ public class CartTest {
 
 		// Test the print method
 		cart.print();
-
+		// Test search by title
+		cart.search("ar"); 
+		cart.search("LION");
+		cart.search("Avatar");  	
+		// Test search by id
+		cart.search(1); 
+		cart.search(10); 
 	}
 
 }
