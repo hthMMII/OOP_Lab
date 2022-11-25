@@ -48,4 +48,19 @@ public class Cart {
 		addDigitalVideoDisc(dvd1);
 		addDigitalVideoDisc(dvd2);
 	}
+
+	public void print() {
+		System.out.println("***********************CART***********************");
+
+		if (qtyOrdered != 0) {
+			for (int i = 0; i < qtyOrdered; ++i) {
+				System.out.println((i + 1) + ". DVD " + itemsOrdered[i].toString());
+			}
+		} else {
+			System.out.println("Cart is empty! Please add DVD to Cart!");
+		}
+
+		System.out.println("Total cost: " + totalCost());
+		System.out.println("***************************************************");
+	}
 }
