@@ -13,3 +13,30 @@ A: JAVA does NOT allow you to do this BECAUSE those two methods have the same si
 
 Q: Is JAVA a Pass by Value or a Pass by Reference programming language? 
 A: JAVA is always a pass by value programming language.
+
+------------------------------------------------------------------------------------------------------------
+
+Q: What class should implement the Comparable interface?
+A: Media and Track class
+
+Q: In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+A: public abstract class Media implements Comparable<Media>
+
+public int compareTo(Media media) {
+    return Comparator.comparing(Media::getCost)
+            .thenComparing(Media::getTitle)
+            .compare(this, media);
+}
+
+Q: Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+A: No we can only have one ordering rule defined in the compareTo() function.
+
+Q: Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+A: We can override the compareTo() method in DigitalVideoDisc class
+	public int compareTo(Media media) {
+    DigitalVideoDisc dvd = (DigitalVideoDisc) media;
+    return Comparator.comparing(DigitalVideoDisc::getTitle)
+            .thenComparing(DigitalVideoDisc::getLength, Comparator.reverseOrder())
+            .thenComparing(DigitalVideoDisc::getCost)
+            .compare(this, dvd);
+}
